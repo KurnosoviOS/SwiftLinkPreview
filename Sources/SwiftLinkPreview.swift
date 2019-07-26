@@ -398,6 +398,9 @@ extension SwiftLinkPreview {
         otherResponse = self.crawlDescription(otherResponse.htmlCode, result: otherResponse.result)
         
         otherResponse = self.crawlPrice(otherResponse.htmlCode, result: otherResponse.result)
+        
+        //Не пытаемся загрузить первую картинку - они часто кривые
+        return otherResponse.result;
 
         return self.crawlImages(otherResponse.htmlCode, result: otherResponse.result)
     }
